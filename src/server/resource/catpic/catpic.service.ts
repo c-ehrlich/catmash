@@ -28,3 +28,14 @@ export async function castCatVotes({
     },
   });
 }
+
+export async function getCatPicLeaderboard() {
+  return prisma.catPic.findMany({
+    orderBy: {
+      votesFor: {
+        _count: 'desc',
+      },
+    },
+    take: 10,
+  });
+}

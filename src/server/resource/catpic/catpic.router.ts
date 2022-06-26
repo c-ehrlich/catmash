@@ -1,7 +1,11 @@
 import { TRPCError } from '@trpc/server';
 import { createRouter } from '../../router/context';
 import { getTwoSchema, voteSchema } from './catpic.schema';
-import { castCatVotes, getTwoCatPics } from './catpic.service';
+import {
+  castCatVotes,
+  getCatPicLeaderboard,
+  getTwoCatPics,
+} from './catpic.service';
 
 export const catPicRouter = createRouter()
   .query('getTwo', {
@@ -28,5 +32,10 @@ export const catPicRouter = createRouter()
         });
       }
       return true;
+    },
+  })
+  .query('leaderboard', {
+    async resolve() {
+      return await getCatPicLeaderboard();
     },
   });

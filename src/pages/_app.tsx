@@ -7,7 +7,7 @@ import '../styles/globals.css';
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <div className='w-screen h-screen bg-green-400'>
+    <div className='w-screen h-screen overflow-scroll py-8 bg-green-400'>
       <Component {...pageProps} />
     </div>
   );

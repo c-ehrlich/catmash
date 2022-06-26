@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { trpc } from '../utils/trpc';
 
 function LeaderboardPage() {
+  const leaderboard = trpc.useQuery(['catpic.leaderboard']);
+
   return (
     <div className='flex flex-col gap-4 items-center justify-center w-1/2 min-h-screen mx-auto'>
       <div className='self-start'>
@@ -21,7 +24,21 @@ function LeaderboardPage() {
       <h1 className='text-6xl text-red-700 font-bold text-center'>
         Official Top10 cutest cats!
       </h1>
-      <p>Coming soon...</p>
+      {leaderboard.data ? (
+        <div className='flex flex-col gap-4'>
+          {leaderboard.data.map((cat, index) => (
+            <div key={`cat-${cat.id}`}>
+              <h2 className='text-orange-600 font-bold text-xl'>
+                Rank {index + 1}
+              </h2>
+              <img src={cat.imageUrl} alt={`Cat #${cat.id}`} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className='text-orange-600 font-bold text-xl'>loading</div>
+      )}
+      <div>But you know we love all cats equally</div>
     </div>
   );
 }
