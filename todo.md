@@ -4,5 +4,5 @@
 [x] Voting
 [ ] Leaderboard
 [ ] About page
-[ ] Cat paw cursor
+[x] Cat paw cursor
 [ ] Responsiveness

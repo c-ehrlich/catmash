@@ -52,7 +52,10 @@ const Home: NextPage = () => {
                 alt='Cat Picture 1'
               />
             </div>
-            <button className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded'>
+            <button
+              className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded linkPointer'
+              onClick={() => vote(first)}
+            >
               Pick me!
             </button>
           </div>
@@ -64,7 +67,10 @@ const Home: NextPage = () => {
                 alt='Cat Picture 2'
               />
             </div>
-            <button className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded'>
+            <button
+              className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded'
+              onClick={() => vote(second)}
+            >
               Noooo pick me!
             </button>
           </div>

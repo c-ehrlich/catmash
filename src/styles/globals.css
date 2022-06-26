@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  cursor: url('/cursor/cat1.gif'), pointer;
+}
+a,
+button {
+  cursor: url('/cursor/cat2.gif'), pointer;
+}
