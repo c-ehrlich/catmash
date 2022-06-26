@@ -1,20 +1,32 @@
 import { TRPCError } from '@trpc/server';
 import { createRouter } from '../../router/context';
-import { getCatPicsByIdArray } from './catpic.service';
-import { getTwoRandomNumbers } from './catpic.utils';
+import { getTwoSchema, voteSchema } from './catpic.schema';
+import { castCatVotes, getTwoCatPics } from './catpic.service';
 
-export const catPicRouter = createRouter().query('getTwo', {
-  async resolve() {
-    const ids = getTwoRandomNumbers();
-    const catPics = await getCatPicsByIdArray(ids);
-    if (!catPics) {
-      console.error('ERROR');
-      console.log(JSON.stringify(catPics));
-      throw new TRPCError({
-        code: 'INTERNAL_SERVER_ERROR',
-        message: 'Failed to retrieve cat pictures',
-      });
-    }
-    return catPics;
-  },
-});
+export const catPicRouter = createRouter()
+  .query('getTwo', {
+    input: getTwoSchema,
+    async resolve({ input }) {
+      const catPics = await getTwoCatPics(input);
+      if (!catPics) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to retrieve cat pictures',
+        });
+      }
+      return catPics;
+    },
+  })
+  .mutation('vote', {
+    input: voteSchema,
+    async resolve({ input }) {
+      const vote = await castCatVotes(input);
+      if (!vote) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to place votes',
+        });
+      }
+      return true;
+    },
+  });

@@ -1,9 +1,8 @@
 import _ from 'lodash';
 
-const TOTAL_NUMBER_OF_CAT_PICS = 11091;
-
-export function getTwoRandomNumbers(
-  max: number = TOTAL_NUMBER_OF_CAT_PICS
+export function getIdsForVote(
+  // TODO put this in env (it's the number of cats in our database)
+  max: number = 11091
 ): [number, number] {
   const firstNumber = _.random(1, max);
   let secondNumber = firstNumber;

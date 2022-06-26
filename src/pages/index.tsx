@@ -2,13 +2,30 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import { getIdsForVote } from '../utils/getIdsForVote';
 import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
-  const catPics = trpc.useQuery(['catpic.getTwo']);
+  const [ids, updateIds] = useState(() => getIdsForVote());
+  const [first, second] = ids;
+  console.log(first, second);
+
+  const catPics = trpc.useQuery(['catpic.getTwo', { first, second }]);
+  const voteMutation = trpc.useMutation(['catpic.vote']);
 
   if (!(catPics && catPics.data && catPics.data[0] && catPics.data[1]))
     return <div>{JSON.stringify(catPics)}</div>;
+
+  function vote(selected: number) {
+    if (selected === first) {
+      voteMutation.mutate({ votedForId: first, votedAgainstId: second });
+    } else {
+      voteMutation.mutate({ votedForId: second, votedAgainstId: first });
+    }
+
+    updateIds(getIdsForVote());
+  }
 
   return (
     <>
