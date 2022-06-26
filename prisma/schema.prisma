@@ -28,7 +28,6 @@ model CatPic {
     id        Int      @id @default(autoincrement())
     createdAt DateTime @default(now())
 
-    name         String
     imageUrl     String
     votesFor     Vote[] @relation("votesFor")
     votesAgainst Vote[] @relation("votesAgainst")
