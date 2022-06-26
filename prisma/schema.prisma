@@ -6,11 +6,40 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = "file:./db.sqlite"
-    // url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model Example {
     id String @id @default(cuid())
+}
+
+model Vote {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+
+    votedForId     Int
+    votedFor       CatPic @relation("votesFor", fields: [votedForId], references: [id])
+    votedAgainstId Int
+    votedAgainst   CatPic @relation("votesAgainst", fields: [votedAgainstId], references: [id])
+}
+
+model CatPic {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+
+    name         String
+    imageUrl     String
+    votesFor     Vote[] @relation("votesFor")
+    votesAgainst Vote[] @relation("votesAgainst")
+
+    downReports CatPicDownReport[] @relation("downReports")
+}
+
+model CatPicDownReport {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+
+    catPicId Int
+    catPic   CatPic @relation("downReports", fields: [catPicId], references: [id])
 }
