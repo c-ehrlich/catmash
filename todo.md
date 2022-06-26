@@ -5,5 +5,6 @@
 [ ] Leaderboard
 [x] About page
 [x] Cat paw cursor
+[x] Metadata
 [ ] Responsiveness
 [ ] Better loading state
