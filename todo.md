@@ -3,6 +3,7 @@
 [x] Header image
 [x] Voting
 [ ] Leaderboard
-[ ] About page
+[x] About page
 [x] Cat paw cursor
 [ ] Responsiveness
+[ ] Better loading state
