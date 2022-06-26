@@ -9,6 +9,7 @@ function AboutPage() {
           <Link href='/' passHref>
             <a className='flex gap-2'>
               <Image
+                style={{ imageRendering: 'pixelated' }}
                 src='/img/cat-back.png'
                 alt='Cat Back'
                 width={23}
