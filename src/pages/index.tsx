@@ -9,13 +9,11 @@ import { trpc } from '../utils/trpc';
 const Home: NextPage = () => {
   const [ids, updateIds] = useState(() => getIdsForVote());
   const [first, second] = ids;
-  console.log(first, second);
 
   const catPics = trpc.useQuery(['catpic.getTwo', { first, second }]);
-  const voteMutation = trpc.useMutation(['catpic.vote']);
+  const [cat1, cat2] = catPics.data || [];
 
-  if (!(catPics && catPics.data && catPics.data[0] && catPics.data[1]))
-    return <div>{JSON.stringify(catPics)}</div>;
+  const voteMutation = trpc.useMutation(['catpic.vote']);
 
   function vote(selected: number) {
     if (selected === first) {
@@ -46,37 +44,47 @@ const Home: NextPage = () => {
         <div className='flex gap-4'>
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg'>
             <div className='flex items-center justify-center w-96 h-96 bg-transparent rounded-md overflow-hidden'>
-              <img
-                className='object-contain max-h-96 max-w-96 rounded-md'
-                src={catPics.data[0].imageUrl}
-                alt='Cat Picture 1'
-              />
+              {cat1?.imageUrl ? (
+                <img
+                  className='object-contain max-h-96 max-w-96 rounded-md'
+                  src={cat1.imageUrl}
+                  alt='Cat Picture 1'
+                />
+              ) : (
+                <div className='text-pink-400 text-2xl font-bold'>loading</div>
+              )}
             </div>
             <button
               className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded linkPointer'
               onClick={() => vote(first)}
+              disabled={!cat1?.imageUrl}
             >
               Pick me!
             </button>
           </div>
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg'>
             <div className='flex items-center justify-center w-96 h-96 bg-transparent rounded-md overflow-hidden'>
-              <img
-                className='object-contain max-h-96 max-w-96 rounded-md'
-                src={catPics.data[1].imageUrl}
-                alt='Cat Picture 2'
-              />
+              {cat2?.imageUrl ? (
+                <img
+                  className='object-contain max-h-96 max-w-96 rounded-md'
+                  src={cat2.imageUrl}
+                  alt='Cat Picture 2'
+                />
+              ) : (
+                <div className='text-pink-400 text-2xl font-bold'>plz wait</div>
+              )}
             </div>
             <button
               className='bg-yellow-300 hover:bg-yellow-400 text-xl text-yellow-800 font-bold py-2 px-4 rounded'
               onClick={() => vote(second)}
+              disabled={!cat1?.imageUrl}
             >
               Noooo pick me!
             </button>
           </div>
         </div>
         <span className='flex gap-2 text-sky-600 font-bold'>
-          <Link href='/top10'>
+          <Link href='/leaderboard'>
             <a>Cutest Cats</a>
           </Link>
           <span className='font-light'>/</span>
