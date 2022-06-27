@@ -2,9 +2,10 @@
 [x] Front page styling
 [x] Header image
 [x] Voting
-[ ] Leaderboard
+[x] Leaderboard
 [x] About page
 [x] Cat paw cursor
 [x] Metadata
 [ ] Responsiveness
-[ ] Better loading state
+[x] Better loading state
+[x] SSG the leaderboard once every couple of minutes

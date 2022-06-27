@@ -31,6 +31,10 @@ export async function castCatVotes({
 
 export async function getCatPicLeaderboard() {
   return prisma.catPic.findMany({
+    select: {
+      id: true,
+      imageUrl: true,
+    },
     orderBy: {
       votesFor: {
         _count: 'desc',

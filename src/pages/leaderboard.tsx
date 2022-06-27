@@ -1,10 +1,14 @@
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { trpc } from '../utils/trpc';
+import { getCatPicLeaderboard } from '../server/resource/catpic/catpic.service';
+import { inferAsyncReturnType } from '@trpc/server';
 
-function LeaderboardPage() {
-  const leaderboard = trpc.useQuery(['catpic.leaderboard']);
+type LeaderboardPageProps = inferAsyncReturnType<typeof getCatPicLeaderboard>;
 
+const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
+  props
+) => {
   return (
     <div className='flex flex-col gap-4 items-center justify-center w-1/2 min-h-screen mx-auto'>
       <div className='self-start'>
@@ -24,9 +28,9 @@ function LeaderboardPage() {
       <h1 className='text-6xl text-red-700 font-bold text-center'>
         Official Top10 cutest cats!
       </h1>
-      {leaderboard.data ? (
+      {props.leaderboard ? (
         <div className='flex flex-col gap-4'>
-          {leaderboard.data.map((cat, index) => (
+          {props.leaderboard.map((cat, index) => (
             <div key={`cat-${cat.id}`}>
               <h2 className='text-orange-600 font-bold text-xl'>
                 Rank {index + 1}
@@ -41,6 +45,18 @@ function LeaderboardPage() {
       <div>But you know we love all cats equally</div>
     </div>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const FIVE_MINUTES = 60 * 5;
+  const leaderboard = await getCatPicLeaderboard();
+
+  return {
+    props: {
+      leaderboard,
+    },
+    revalidate: FIVE_MINUTES,
+  };
+};
 
 export default LeaderboardPage;
