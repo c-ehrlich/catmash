@@ -46,7 +46,12 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
       ) : (
         <div className='text-orange-600 font-bold text-xl'>loading</div>
       )}
-      <div>But you know we love all cats equally</div>
+      <img src='/img/alert-siren.gif' alt='siren' />
+      <div className='text-2xl text-red-600 font-bold text-center'>
+        This is just a lil project I did for fun. Please give the same amount of
+        love to all cats!!
+      </div>
+      <img src='/img/alert-siren.gif' alt='siren' />
     </div>
   );
 };
