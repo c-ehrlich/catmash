@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 function AboutPage() {
   return (
-    <div className='w-screen h-screen catbg'>
-      <div className='flex flex-col gap-4 items-center justify-center w-1/2 min-h-screen mx-auto'>
+    <div className='absolute left-0 top-0 w-screen h-screen catbg'>
+      <div className='flex flex-col gap-4 items-center justify-center p-4 md:w-1/2 min-h-screen mx-auto'>
         <div className='self-start'>
           <Link href='/' passHref>
             <a className='flex gap-2'>

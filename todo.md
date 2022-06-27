@@ -6,6 +6,11 @@
 [x] About page
 [x] Cat paw cursor
 [x] Metadata
-[ ] Responsiveness
+[x] Responsiveness
+  [x] iPad portrait
+  [x] iPhone 13
+  [x] iPhone SE
+  [x] about page weird scrolling behaviour
 [x] Better loading state
 [x] SSG the leaderboard once every couple of minutes
+[ ] Testing?

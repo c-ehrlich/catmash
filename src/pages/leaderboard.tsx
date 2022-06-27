@@ -10,7 +10,7 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
   props
 ) => {
   return (
-    <div className='flex flex-col gap-4 items-center justify-center w-1/2 min-h-screen mx-auto'>
+    <div className='flex flex-col gap-4 items-center justify-center px-4 lg:max-w-4xl'>
       <div className='self-start'>
         <Link href='/' passHref>
           <a className='flex gap-2'>
@@ -35,7 +35,11 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
               <h2 className='text-orange-600 font-bold text-xl'>
                 Rank {index + 1}
               </h2>
-              <img src={cat.imageUrl} alt={`Cat #${cat.id}`} />
+              <img
+                className='rounded-lg'
+                src={cat.imageUrl}
+                alt={`Cat #${cat.id}`}
+              />
             </div>
           ))}
         </div>

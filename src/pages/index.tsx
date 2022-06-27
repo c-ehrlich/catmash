@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <meta name='description' content='Which cat is cuter???' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='flex flex-col gap-4 items-center justify-center w-1/2 min-h-screen mx-auto'>
+      <div className='flex flex-col gap-4 items-center justify-center mx-4 lg:w-1/2'>
         <Image
           style={{ imageRendering: 'pixelated' }}
           src='/img/cats-header.png'
@@ -40,10 +40,12 @@ const Home: NextPage = () => {
           width={305}
           height={85}
         />
-        <h1 className='text-5xl font-bold text-red-600'>Which cat is cuter?</h1>
-        <div className='flex gap-4'>
-          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg'>
-            <div className='flex items-center justify-center w-96 h-96 bg-transparent rounded-md overflow-hidden'>
+        <h1 className='text-5xl font-bold text-red-600 text-center'>
+          Which cat is cuter?
+        </h1>
+        <div className='flex flex-col lg:flex-row gap-4 items-center'>
+          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
+            <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
               {cat1?.imageUrl ? (
                 <img
                   className='object-contain max-h-96 max-w-96 rounded-md'
@@ -62,8 +64,8 @@ const Home: NextPage = () => {
               Pick me!
             </button>
           </div>
-          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg'>
-            <div className='flex items-center justify-center w-96 h-96 bg-transparent rounded-md overflow-hidden'>
+          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
+            <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
               {cat2?.imageUrl ? (
                 <img
                   className='object-contain max-h-96 max-w-96 rounded-md'
