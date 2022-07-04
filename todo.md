@@ -13,6 +13,6 @@
   [x] about page weird scrolling behaviour
 [x] Better loading state
 [x] SSG the leaderboard once every couple of minutes
-[ ] upgrade to next 11.2
-[ ] use next beta image
+[x] upgrade to next 11.2
+[x] use next beta image
 [ ] Testing?
