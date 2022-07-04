@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import Link from 'next/link';
 import { getCatPicLeaderboard } from '../server/resource/catpic/catpic.service';
 import { inferAsyncReturnType } from '@trpc/server';
@@ -18,8 +18,7 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
               style={{ imageRendering: 'pixelated' }}
               src='/img/cat-back.png'
               alt='Cat Back'
-              width={23}
-              height={21}
+              className='w-6 h-8'
             />
             <span className='text-2xl font-bold text-pink-500'>Go back</span>
           </a>
@@ -35,7 +34,7 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
               <h2 className='text-orange-600 font-bold text-xl'>
                 Rank {index + 1}
               </h2>
-              <img
+              <Image
                 className='rounded-lg'
                 src={cat.imageUrl}
                 alt={`Cat #${cat.id}`}
@@ -46,18 +45,19 @@ const LeaderboardPage: React.FC<{ leaderboard: LeaderboardPageProps }> = (
       ) : (
         <div className='text-orange-600 font-bold text-xl'>loading</div>
       )}
-      <img src='/img/alert-siren.gif' alt='siren' />
+      <Image src='/img/alert-siren.gif' alt='siren' />
       <div className='text-2xl text-red-600 font-bold text-center'>
         This is just a lil project I did for fun. Please give the same amount of
         love to all cats!!
       </div>
-      <img src='/img/alert-siren.gif' alt='siren' />
+      <Image src='/img/alert-siren.gif' alt='siren' />
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   const FIVE_MINUTES = 60 * 5;
+  // TODO should we use trpc.useQuery for this?
   const leaderboard = await getCatPicLeaderboard();
 
   return {

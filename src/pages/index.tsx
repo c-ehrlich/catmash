@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { getIdsForVote } from '../utils/getIdsForVote';
@@ -47,8 +47,8 @@ const Home: NextPage = () => {
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
             <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
               {cat1?.imageUrl ? (
-                <img
-                  className='object-contain max-h-96 max-w-96 rounded-md'
+                <Image
+                  className='object-contain w-full h-full max-h-96 max-w-96 rounded-md'
                   src={cat1.imageUrl}
                   alt='Cat Picture 1'
                 />
@@ -67,8 +67,8 @@ const Home: NextPage = () => {
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
             <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
               {cat2?.imageUrl ? (
-                <img
-                  className='object-contain max-h-96 max-w-96 rounded-md'
+                <Image
+                  className='object-contain w-full h-full max-h-96 max-w-96 rounded-md'
                   src={cat2.imageUrl}
                   alt='Cat Picture 2'
                 />
