@@ -1,5 +1,7 @@
 # CatMash
 
+[Live Demo](https://catmash.c-ehrlich.dev)
+
 ![CatMash Screenshot](https://user-images.githubusercontent.com/8353666/175953666-74e94b19-8bcf-4227-8eb4-607e1b6fa00e.png)
 
 ## What is this?
