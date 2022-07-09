@@ -15,4 +15,4 @@
 [x] SSG the leaderboard once every couple of minutes
 [x] upgrade to next 11.2
 [x] use next beta image
-[ ] Testing?
+[x] fix responsiveness/scaling on small screens

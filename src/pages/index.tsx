@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <meta name='description' content='Which cat is cuter???' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='flex flex-col gap-4 items-center justify-center mx-4 lg:w-1/2'>
+      <div className='flex flex-col gap-4 items-center justify-center mx-4 w-10/12'>
         <Image
           style={{ imageRendering: 'pixelated' }}
           src='/img/cats-header.png'
@@ -43,17 +43,17 @@ const Home: NextPage = () => {
         <h1 className='text-5xl font-bold text-red-600 text-center'>
           Which cat is cuter?
         </h1>
-        <div className='flex flex-col lg:flex-row gap-4 items-center'>
-          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
-            <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
+        <div className='flex flex-col md:flex-row gap-4 items-center justify-center w-full'>
+          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-full max-w-sm'>
+            <div className='flex items-center justify-center aspect-square w-full bg-transparent rounded-md overflow-hidden'>
               {cat1?.imageUrl ? (
                 <Image
-                  className='object-contain w-full h-full max-h-96 max-w-96 rounded-md'
+                  className='object-contain w-full h-full rounded-md'
                   src={cat1.imageUrl}
                   alt='Cat Picture 1'
                 />
               ) : (
-                <div className='text-pink-400 text-2xl font-bold'>loading</div>
+                <div className='text-pink-500 text-2xl font-bold'>loading</div>
               )}
             </div>
             <button
@@ -64,16 +64,16 @@ const Home: NextPage = () => {
               Pick me!
             </button>
           </div>
-          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-auto'>
-            <div className='flex items-center justify-center aspect-square md:w-96 md:h-96 bg-transparent rounded-md overflow-hidden'>
+          <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-full max-w-sm'>
+            <div className='flex items-center justify-center aspect-square w-full bg-transparent rounded-md overflow-hidden'>
               {cat2?.imageUrl ? (
                 <Image
-                  className='object-contain w-full h-full max-h-96 max-w-96 rounded-md'
+                  className='object-contain w-full h-full rounded-md'
                   src={cat2.imageUrl}
                   alt='Cat Picture 2'
                 />
               ) : (
-                <div className='text-pink-400 text-2xl font-bold'>plz wait</div>
+                <div className='text-pink-500 text-2xl font-bold'>plz wait</div>
               )}
             </div>
             <button
