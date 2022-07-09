@@ -16,3 +16,4 @@
 [x] upgrade to next 11.2
 [x] use next beta image
 [x] fix responsiveness/scaling on small screens
+[x] image border radius

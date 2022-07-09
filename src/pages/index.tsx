@@ -47,11 +47,13 @@ const Home: NextPage = () => {
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-full max-w-sm'>
             <div className='flex items-center justify-center aspect-square w-full bg-transparent rounded-md overflow-hidden'>
               {cat1?.imageUrl ? (
-                <Image
-                  className='object-contain w-full h-full rounded-md'
-                  src={cat1.imageUrl}
-                  alt='Cat Picture 1'
-                />
+                <div className='flex align-center items-center w-full h-full'>
+                  <Image
+                    className='object-contain rounded-md'
+                    src={cat1.imageUrl}
+                    alt='Cat Picture 1'
+                  />
+                </div>
               ) : (
                 <div className='text-pink-500 text-2xl font-bold'>loading</div>
               )}
@@ -67,11 +69,13 @@ const Home: NextPage = () => {
           <div className='flex flex-col gap-4 items-center p-4 bg-green-500 rounded-lg w-full max-w-sm'>
             <div className='flex items-center justify-center aspect-square w-full bg-transparent rounded-md overflow-hidden'>
               {cat2?.imageUrl ? (
-                <Image
-                  className='object-contain w-full h-full rounded-md'
-                  src={cat2.imageUrl}
-                  alt='Cat Picture 2'
-                />
+                <div className='flex align-center items-center w-full h-full'>
+                  <Image
+                    className='object-contain rounded-md'
+                    src={cat2.imageUrl}
+                    alt='Cat Picture 2'
+                  />
+                </div>
               ) : (
                 <div className='text-pink-500 text-2xl font-bold'>plz wait</div>
               )}
