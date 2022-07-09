@@ -49,9 +49,11 @@ const Home: NextPage = () => {
               {cat1?.imageUrl ? (
                 <div className='flex align-center items-center w-full h-full'>
                   <Image
-                    className='object-contain rounded-md'
+                    className='object-fill rounded-md'
                     src={cat1.imageUrl}
                     alt='Cat Picture 1'
+                    width={500}
+                    height={500}
                   />
                 </div>
               ) : (
@@ -71,9 +73,11 @@ const Home: NextPage = () => {
               {cat2?.imageUrl ? (
                 <div className='flex align-center items-center w-full h-full'>
                   <Image
-                    className='object-contain rounded-md'
+                    className='object-fill rounded-md'
                     src={cat2.imageUrl}
                     alt='Cat Picture 2'
+                    width={500}
+                    height={500}
                   />
                 </div>
               ) : (
