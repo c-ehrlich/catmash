@@ -12,10 +12,10 @@ This is an app bootstrapped according to the [init.tips](https://init.tips) stac
 ## Installation
 Install dependencies
 ```
-yarn
+pnpm i
 ```
 
-Create a Postgres database. You can use a local database for dev. For deployment, the free tier of Amazon RDS should be able to run the site for free indefinitely as long as it doesn't miraculously become incredibly popular.
+Create a Postgres database. You can use a local database for dev. For deployment, the Railway.app should be able to run the site for free indefinitely as long as it doesn't miraculously become incredibly popular.
 
 Register an API Key with [TheCatApi](https://docs.thecatapi.com/).
 
@@ -23,17 +23,17 @@ Create a `.env` file, based on `.env-example`.
 
 Create the database schema
 ```
-yarn prisma migrate dev
+npx prisma db push
 ```
 
 Run the database population script. You might need to temporarily change the `module` to `common-js` in `tsconfig.json` for the script to work.
 ```
-yarn populatedb
+pnpm populatedb
 ```
 
 Start the development server
 ```
-yarn dev
+pnpm dev
 ```
 
 ## Deployment
