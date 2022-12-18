@@ -1,3 +1,5 @@
+# **The demo currently doesn't work because I stopped paying for AWS which the database was hosted on. Will deploy somewhere else over the holidays.**
+
 # CatMash
 
 [Live Demo](https://catmash.c-ehrlich.dev)
